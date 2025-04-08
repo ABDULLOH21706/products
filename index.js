@@ -1,10 +1,12 @@
-// index.js
-
 document.addEventListener("DOMContentLoaded", function () {
     const apiURL = "https://67e66e836530dbd3110ff49a.mockapi.io/todo/products";
     const container = document.getElementById("product-container");
   
-    // Mahsulotlarni API dan olish va ko'rsatish
+    if (!container) {
+      console.error('product-container elementi topilmadi!');
+      return;
+    }
+  
     fetch(apiURL)
       .then((res) => res.json())
       .then((data) => {
@@ -14,13 +16,12 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .catch((error) => console.error("Error fetching data:", error));
   
-    // Mahsulotni index sahifasida ko'rsatish
     function renderProductInIndexPage(container, product) {
       container.innerHTML += `
-        <div class="product">
-        <a href="./product.html">
-          <img src="${product.image_url}" alt="">
-        </a>
+        <div class="product" data-id="${product.id}">
+          <a href="./product.html">
+            <img src="${product.image_url}" alt="">
+          </a>
           <div class="like" id="default_like_div">
             <img id="default_like" class="flex" src="./product/like/like.svg" alt="">
             <img id="red_like" class="hidden" src="./product/like/red_like.svg" alt="">
@@ -46,30 +47,42 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="w-[14px]">
                   <img src="./product/cart/Vector.svg" alt="">
                 </div>
-                <p class="text-white text-[14px] font-[700]">Add</p>
+                <p class="text-white text-[14px] font-[700]" data-id="${product.id}">Add</p>
               </button>
             </div>
-                <button class="delete-btn">Delete</button>
+            <button class="delete-btn w-[100%] h-[45px] rounded-[4px] text-white bg-[#F53E32]">Delete</button>
           </div>
         </div>
-    `;
+      `;
+    }
+  });  
+
+
+
+
+  function getUrlParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const productId = getUrlParameter('id');
+    if (productId) {
+      const product = {
+        1: { title: 'Mahsulot 1', description: 'birinchi mahsulot.', image_url: './product/product-1.svg' },
+        2: { title: 'Mahsulot 2', description: 'ikkinchi mahsulot.', image_url: './product/product-2.svg' },
+      }[productId];
+      if (product) {
+        const detailsContainer = document.getElementById('product-details');
+        detailsContainer.innerHTML = `
+          <h1>${product.title}</h1>
+          <img src="${product.image_url}" alt="${product.title}">
+          <p>${product.description}</p>
+        `;
+      } else {
+        document.getElementById('product-details').innerHTML = '<p>Mahsulot topilmadi.</p>';
+      }
+    } else {
+      document.getElementById('product-details').innerHTML = '<p>Mahsulot ID si berilmagan.</p>';
     }
   });
-  
-
-  document.addEventListener('DOMContentLoaded', function () {
-    const deleteBtns = document.querySelectorAll('.delete-btn');
-
-    deleteBtns.forEach(btn => {
-        btn.addEventListener('click', function (e) {
-            const productElement = e.target.closest('.product'); // O‘chiriladigan mahsulotni topish
-            const productId = productElement.dataset.id; // Mahsulotning ID sini olish
-
-            // Mahsulotni o‘chirish
-            deleteProduct(productId); // O‘chirish funksiyasini chaqirish
-
-            // DOMdan o‘chirish
-            productElement.remove();
-        });
-    });
-});

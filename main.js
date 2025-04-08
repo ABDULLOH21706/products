@@ -1,14 +1,13 @@
-// DOM kontent yuklanganda ishga tushadi
 document.addEventListener("DOMContentLoaded", function () {
   const apiURL = "https://67e66e836530dbd3110ff49a.mockapi.io/todo/products";
   const container1 = document.getElementById("product-container");
   const container2 = document.getElementById("product-container-2");
-
+  console.log(container1);
   fetch(apiURL)
     .then((res) => res.json())
     .then((data) => {
       const firstTenProducts = data.slice(0, 10);
-      const lastFiveProducts = data.slice(10, 15); // 14 indexdan 15 indexgacha
+      const lastFiveProducts = data.slice(10, 15);
       firstTenProducts.forEach((product) => {
         renderProduct(container1, product);
       });
@@ -18,12 +17,12 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .catch((error) => console.error("Error fetching data:", error));
 
-  // Mahsulotni ko'rsatish (container1)
   function renderProduct(container, product) {
     const productElement = `
-      <a href="./product.html">
         <div class="product">
+        <a href="./product.html">
           <img src="${product.image_url}" alt="">
+        </a>
           <div class="like" id="default_like_div">
             <img id="default_like" class="flex" src="./product/like/like.svg" alt="">
             <img id="red_like" class="hidden" src="./product/like/red_like.svg" alt="">
@@ -54,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
           </div>
         </div>
-      </a>
     `;
     container.innerHTML += productElement;
   }
@@ -99,8 +97,6 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
     `;
     container.innerHTML += productElement;
-
-    // Add event listener to cart button
     setTimeout(() => {
       const button = document.querySelector(`#${productId} .add-to-cart-btn`);
       button.addEventListener("click", () => {
@@ -112,13 +108,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 0);
   }
 
-  // Mahsulot sotilish foizini hisoblash
   function calculateSoldPercentage(sold, from) {
     if (from === 0) return 0;
     return ((sold / from) * 100).toFixed(2);
   }
 
-  // Mahsulot sotilish miqdorini yangilash
   function updateSoldQuantity(productId, updatedSold, productIdHTML) {
     fetch(
       `https://67e66e836530dbd3110ff49a.mockapi.io/todo/products/${productId}`,
@@ -143,8 +137,6 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .catch((err) => console.error("PATCH error:", err));
   }
-
-  // Mahsulot qo'shish
   const addBtn = document.querySelector(".addBtn");
   if (addBtn) {
     addBtn.addEventListener("click", async () => {
@@ -166,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         const data = await res.json();
         console.log("Yangi product qo‘shildi:", data);
-        renderProduct(container1, data); // Yangi mahsulotni ko'rsatish
+        renderProduct(container1, data);
       } catch (err) {
         console.error("Xatolik yuz berdi:", err);
       }

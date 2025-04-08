@@ -1,13 +1,9 @@
 const apiURL = "https://67e66e836530dbd3110ff49a.mockapi.io/todo/products";
 
-// DOM kontenti yuklanganda ishga tushadigan funksiyani yaratish
 document.addEventListener("DOMContentLoaded", function () {
-  const addBtn = document.querySelector(".addBtn"); // 'addBtn' class orqali elementni topish
-
-  // Agar 'addBtn' tugmasi mavjud bo'lsa, unga event listener qo'shish
+  const addBtn = document.querySelector(".addBtn");
   if (addBtn) {
     addBtn.addEventListener("click", async function () {
-      // Formdan olingan ma'lumotlar
       const product = {
         image_url: document.getElementById("img").value,
         title: document.getElementById("title").value,
@@ -20,8 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
         sold: parseInt(document.getElementById("sold").value) || 0,
         from: parseInt(document.getElementById("from").value) || 0,
       };
-
-      // Mahsulotni API'ga yuborish
       try {
         const res = await fetch(apiURL, {
           method: "POST",
@@ -33,16 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const data = await res.json();
         console.log("✅ Yangi product qo‘shildi:", data);
-
-        // Yangi mahsulotni index sahifasida ko'rsatish
         renderProductInIndexPage(data);
-
-        // Alert orqali foydalanuvchiga xabar berish
         alert("Product muvaffaqiyatli qo‘shildi!");
       } catch (err) {
         console.error("❌ Xatolik yuz berdi:", err);
-
-        // Agar xatolik yuz bersa, alert orqali foydalanuvchiga xabar berish
         alert("Xatolik yuz berdi!");
       }
     });
@@ -50,12 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("addBtn element not found");
   }
 });
-
-// Mahsulotni index sahifasida ko‘rsatish funksiyasi
 function renderProductInIndexPage(product) {
   const container = document.getElementById("product-container");
-
-  // Mahsulotni DOM elementiga qo‘shish
   container.innerHTML += `
         <div class="product">
         <a href="./product.html">
