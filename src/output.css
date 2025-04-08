@@ -574,20 +574,12 @@ video {
   margin-left: 38px;
 }
 
-.mt-4 {
-  margin-top: 1rem;
-}
-
 .mt-\[70px\] {
   margin-top: 70px;
 }
 
 .flex {
   display: flex;
-}
-
-.grid {
-  display: grid;
 }
 
 .hidden {
@@ -796,10 +788,6 @@ video {
   cursor: pointer;
 }
 
-.grid-cols-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
 .flex-col {
   flex-direction: column;
 }
@@ -830,10 +818,6 @@ video {
 
 .gap-2 {
   gap: 0.5rem;
-}
-
-.gap-4 {
-  gap: 1rem;
 }
 
 .gap-\[10px\] {
@@ -1591,4 +1575,4 @@ footer {
   .max-xs\:text-\[22px\] {
     font-size: 22px;
   }
-}
+}  
