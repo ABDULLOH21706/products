@@ -158,8 +158,6 @@ function addToCart(product) {
   cartItems.appendChild(productItem);
 }
 
-const apiURL = "https://67e66e836530dbd3110ff49a.mockapi.io/todo/products";
-
 document.getElementById("addBtn").addEventListener("click", async () => {
   const product = {
     img: document.getElementById("img").value,
