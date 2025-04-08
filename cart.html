@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./src/output.css">
+    <link rel="stylesheet" href="./src/style.css">
+</head>
+
+<body>
+
+    <header
+        class="flex flex-col items-center justify-between p-[10px] pr-[130px] pl-[130px] max-xl:pr-[50px] max-xl:pl-[50px]">
+        <div class="flex items-center justify-between w-[100%]">
+            <input type="checkbox" id="burger" class="hidden">
+            <label for="burger" class="w-[35px] cursor-pointer">
+                <img src="./img/header/burger.svg" alt="" draggable="false">
+            </label>
+            <div id="menu"
+                class="bg-[#1A202C] gap-[50px] flex flex-col items-center justify-start w-[100%] h-[100%] p-[10px] pr-[130px] pl-[130px] max-xl:pr-[50px] max-xl:pl-[50px] absolute">
+                <div class="w-[100%] flex items-center justify-start">
+                    <label for="burger"
+                        class="flex items-center justify-start text-[#92D1AB] text-[35px] cursor-pointer">
+                        <i class="fa-solid fa-xmark"></i>
+                    </label>
+                </div>
+                <div class="hidden items-center justify-center w-[100%] max-xl:w-[79%] max-md:flex">
+                    <input
+                        class="w-[54%] max-xs:w-[87%] max-lg:text-[14px] max-xs:text-[12px] h-[45px] rounded-tl-[5px] rounded-bl-[5px] border-[1px] border-[#64B496] pl-[16px] pr-[16px] max-lg:pl-[10px] max-lg:pr-[10px]"
+                        type="text" id="search" placeholder="Search For items...">
+                    <select
+                        class="w-[30%] h-[45px] outline-none border-[1px] border-l-[0px] border-[#64B496] max-lg:hidden">
+                        <option value="1">All Categories</option>
+                        <option value="1">All Categories</option>
+                    </select>
+                    <div
+                        class="flex items-center justify-center w-[11%] max-xs:w-[20%] h-[45px] bg-[#F53E32] rounded-tr-[5px] rounded-br-[5px]">
+                        <label for="search"
+                            class="flex items-center justify-center w-[45px] h-[45px] text-white cursor-pointer">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center justify-center gap-[40px]">
+                    <select class="bg-transparent outline-none text-[#92D1AB]">
+                        <option value="1">Home</option>
+                    </select>
+                    <select class="bg-transparent outline-none text-[#92D1AB]">
+                        <option value="2">Category</option>
+                    </select>
+                    <select class="bg-transparent outline-none text-[#92D1AB]">
+                        <option value="3">Products</option>
+                    </select>
+                    <select class="bg-transparent outline-none text-[#92D1AB]">
+                        <option value="4">Pages</option>
+                    </select>
+                    <select class="bg-transparent outline-none text-[#92D1AB]">
+                        <option value="5">Blog</option>
+                    </select>
+                    <select class="bg-transparent outline-none text-[#92D1AB]">
+                        <option value="6">Elements</option>
+                    </select>
+                </div>
+                <div class="flex items-center justify-center gap-[10px] text-[#92D1AB] max-md:hidden">
+                    <p class="text-[15px] font-[400]">
+                        +123 ( 456 ) ( 7890 )
+                    </p>
+                </div>
+            </div>
+            <div class="flex items-center justify-center gap-[40px] max-xl2:hidden">
+                <select>
+                    <option value="1">Home</option>
+                </select>
+                <select>
+                    <option value="2">Category</option>
+                </select>
+                <select>
+                    <option value="3">Products</option>
+                </select>
+                <select>
+                    <option value="4">Pages</option>
+                </select>
+                <select>
+                    <option value="5">Blog</option>
+                </select>
+                <select>
+                    <option value="6">Elements</option>
+                </select>
+            </div>
+            <div class="items-center justify-center w-[55%] max-xl:w-[79%] hidden max-xl2:flex max-md:hidden">
+                <input
+                    class="w-[42%] h-[45px] rounded-tl-[5px] rounded-bl-[5px] border-[1px] border-[#64B496] pl-[16px] pr-[16px]"
+                    type="text" id="search" placeholder="Search For items...">
+                <select
+                    class="w-[18%] h-[45px] text-[15px] max-xl2:text-[13px] outline-none border-[1px] border-l-[0px] border-[#64B496]">
+                    <option value="1">All Categories</option>
+                    <option value="1">All Categories</option>
+                </select>
+                <div
+                    class="flex items-center justify-center w-[7%] h-[45px] bg-[#F53E32] rounded-tr-[5px] rounded-br-[5px]">
+                    <label for="search"
+                        class="flex items-center justify-center w-[45px] h-[45px] text-white cursor-pointer">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </label>
+                </div>
+            </div>
+            <div class="flex items-center justify-center gap-[10px]">
+                <div class="w-[20px]">
+                    <img src="./img/header/Vector.svg" alt="" draggable="false">
+                </div>
+                <p class="text-[15px] font-[400] max-xl2:text-[12px] text-end">
+                    +123 ( 456 ) <br> ( 7890 )
+                </p>
+            </div>
+        </div>
+        <div class="flex items-center justify-between w-[100%] pt-[20px] pb-[20px] max-lg:flex-col">
+            <a href="./index.html" class="max-lg:w-[100%]">
+                <div class="w-[192px] max-sm:w-[120px]">
+                    <img src="./img/header/logo.svg" alt="" draggable="false">
+                </div>
+            </a>
+            <div class="flex items-center justify-center w-[55%] max-xl:w-[79%] max-xl2:hidden">
+                <input
+                    class="w-[42%] h-[45px] rounded-tl-[5px] rounded-bl-[5px] border-[1px] border-[#64B496] pl-[16px] pr-[16px]"
+                    type="text" id="search" placeholder="Search For items...">
+                <select class="w-[18%] h-[45px] outline-none border-[1px] border-l-[0px] border-[#64B496]">
+                    <option value="1">All Categories</option>
+                    <option value="1">All Categories</option>
+                </select>
+                <label for="search"
+                    class="flex items-center justify-center w-[7%] h-[45px] bg-[#F53E32] rounded-tr-[5px] rounded-br-[5px]">
+                    <div class="flex items-center justify-center w-[45px] h-[45px] text-white cursor-pointer">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </label>
+            </div>
+            <div
+                class="flex items-center justify-center gap-[15px] max-sm:gap-[11px] max-lg:justify-end max-lg:w-[100%] max-xs:overflow-x-auto">
+                <a href="./account.html">
+                    <div
+                        class="flex items-center justify-center gap-[12px] max-sm:gap-[8px] pt-[15px] pb-[15px] cursor-pointer">
+                        <div class="w-[14px]">
+                            <img src="./img/header/account.svg" alt="" draggable="false">
+                        </div>
+                        <p class="text-[15px] font-[500]">
+                            Account
+                        </p>
+                    </div>
+                </a>
+                <a href="./cart.html">
+                    <div
+                        class="flex items-center justify-center gap-[12px] max-sm:gap-[8px] pt-[15px] pb-[15px] cursor-pointer">
+                        <div class="w-[17px]">
+                            <img src="./img/header/like.svg" alt="" draggable="false">
+                        </div>
+                        <p class="text-[15px] font-[500]">
+                            Wishlist
+                        </p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div
+                        class="flex items-center justify-center gap-[12px] max-sm:gap-[8px] pt-[15px] pb-[15px] cursor-pointer">
+                        <div class="w-[17px]">
+                            <img src="./img/header/shop.svg" alt="" draggable="false">
+                        </div>
+                        <p class="text-[15px] font-[500]">
+                            Cart
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>
+    <main class="flex flex-col items-center justify-center w-[100%]">
+        <!-- <div class="bg-[#F53E32] flex items-center justify-between w-[100%] pr-[130px] pl-[130px] max-xl:pr-[50px] max-xl:pl-[50px]"
+            style="height: 70px;">
+            <p class="text-white text-[19px] font-[700]">
+                Like
+            </p>
+            <p class="text-white text-[14px] font-[500]">Home / Cart</p>
+        </div> -->
+    </main>
+    <footer class="flex flex-col items-center justify-center w-[100%] gap-[50px] mt-[70px]">
+        <div class="flex items-start justify-center w-[100%] gap-[30px] flex-wrap">
+            <div class="flex flex-col items-center justify-center w-[420px] gap-[29px]">
+                <div class="flex flex-col items-center justify-center gap-[8px]">
+                    <div class="w-[100%]">
+                        <div class="w-[120px]">
+                            <img src="./img/header/logo.svg" alt="" draggable="false">
+                        </div>
+                    </div>
+                    <div class="w-[100%]">
+                        <p class="text-[#7A7A7A] text-[14px] font-[400]">
+                            FoodTrove is the biggest market of grocery products. Get your daily needs from our store.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex flex-col items-start justify-center gap-[18px] w-[100%]">
+                    <div class="flex items-center justify-start gap-[8px] w-[100%]">
+                        <div class="w-[15px]">
+                            <img src="./img/main/footer_vector1.svg" alt="" draggable="false">
+                        </div>
+                        <p class="text-[#777777] text-[14px] font-[400]">
+                            51 Green St.Huntington ohaio beach ontario, NY
+                            11746 KY 4783, USA.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-start gap-[8px] w-[100%]">
+                        <div class="w-[15px]">
+                            <img src="./img/main/footer_vector2.svg" alt="" draggable="false">
+                        </div>
+                        <p class="text-[#777777] text-[14px] font-[400]">
+                            example@email.com
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-start gap-[8px] w-[100%]">
+                        <div class="w-[15px]">
+                            <img src="./img/main/footer_vector3.svg" alt="" draggable="false">
+                        </div>
+                        <p class="text-[#777777] text-[14px] font-[400]">
+                            +91 123 4567890
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col items-center justify-center gap-[29px]">
+                <h1 class="text-[18px] font-[700] w-[100%]">
+                    Company
+                </h1>
+                <p class="text-[#777777] text-[14px] font-[400] w-[100%]">About Us</p>
+                <p class="text-[#777777] text-[14px] font-[400] w-[100%]">Delivery Information</p>
+                <p class="text-[#777777] text-[14px] font-[400] w-[100%]">Privacy Policy</p>
+                <p class="text-[#777777] text-[14px] font-[400] w-[100%]">Terms & Conditions</p>
+                <p class="text-[#777777] text-[14px] font-[400] w-[100%]">contact Us</p>
+                <p class="text-[#777777] text-[14px] font-[400] w-[100%]">Support Center</p>
+            </div>
+            <div class="flex flex-col items-center justify-center gap-[29px]">
+                <h1 class="text-[18px] font-[700] w-[100%]">Category</h1>
+                <p class="text-[#777777] text-[14px] font-[400] w-[100%]">Dairy & Bakery</p>
+                <p class="text-[#777777] text-[14px] font-[400] w-[100%]">Fruits & Vegetable</p>
+                <p class="text-[#777777] text-[14px] font-[400] w-[100%]">Snack & Spice</p>
+                <p class="text-[#777777] text-[14px] font-[400] w-[100%]">Juice & Drinks</p>
+                <p class="text-[#777777] text-[14px] font-[400] w-[100%]">Chicken & Meat</p>
+                <p class="text-[#777777] text-[14px] font-[400] w-[100%]">Fast Food</p>
+            </div>
+        </div>
+        <div>
+            <p class="text-[14px] font-[400]">
+                © 2025
+                <span class="text-[#F53E32]">foodzy</span>
+                All rights reserved
+            </p>
+        </div>
+    </footer>
+    <script src="./main.js"></script>
+</body>
+
+</html>
